@@ -1,16 +1,13 @@
 import math
+
 import torch
 from torch import nn
+from torch.nn import Conv1d, Conv2d, ConvTranspose1d
 from torch.nn import functional as F
+from torch.nn.utils import remove_weight_norm, spectral_norm, weight_norm
 
-import commons
-import modules
-import attentions
-import monotonic_align
-
-from torch.nn import Conv1d, ConvTranspose1d, Conv2d
-from torch.nn.utils import weight_norm, remove_weight_norm, spectral_norm
-from commons import init_weights, get_padding
+from moegoe import attentions, commons, modules, monotonic_align
+from moegoe.commons import get_padding, init_weights
 
 
 class StochasticDurationPredictor(nn.Module):

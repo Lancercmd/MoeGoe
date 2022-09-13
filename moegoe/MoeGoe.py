@@ -140,9 +140,12 @@ if __name__ == '__main__':
                 ask_if_continue()
     else:
         model = input('Path of a hubert-soft model: ')
-        from hubert_model import hubert_soft
-        hubert = hubert_soft(model)
-
+        from moegoe.hubert_model import hubert_soft
+        try:
+            hubert = hubert_soft(model)
+        except:
+            print('Failed to load!')
+            sys.exit(1)
         while True:
             audio_path = input('Path of an audio file to convert:\n')
             print_speakers(speakers)
